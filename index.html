@@ -91,10 +91,12 @@
         
         <div class="search-container">
             <select id="search-option">
+                <option value="工作总结">工作总结</option>
                 <option value="党建简报">党建简报</option>
                 <option value="心得体会">心得体会</option>
                 <option value="调研报告">调研报告</option>
                 <option value="领导讲话">领导讲话</option>
+                <option value="整改报告">整改报告</option>
                 <option value="理论文章">理论文章</option>
                 <option value="通知方案">通知方案</option>
                 <option value="政府工作报告">政府工作报告</option>
@@ -115,7 +117,7 @@
             
             switch(searchOption) {
                 case '党建简报':
-                    searchUrl = `https://www.bing.com/search?q=(site:dangjian.heshun.gov.cn/zugongxinxi+OR+site:jhzzb.gov.cn+OR+site:jaxf.gov.cn)+${searchInput}`;
+                    searchUrl = `https://www.bing.com/search?q=(site:dangjian.heshun.gov.cn/zugongxinxi+OR+site:jhzzb.gov.cn+OR+site:jaxf.gov.cn+OR+site:gszg.gov.cn)+${searchInput}`;
                     break;
                 case '心得体会':
                     searchUrl = `https://www.bing.com/search?q=(site:tougao.12371.cn)+${searchInput}`;
@@ -123,8 +125,14 @@
                 case '调研报告':
                     searchUrl = `https://www.bing.com/search?q=(site:wzdj.gov.cn+OR+site:jsrd.gov.cn+OR+site:ankang.gov.cn+OR+site:czt.hunan.gov.cn/)+${searchOption}+${searchInput}`;
                     break;
+                case '整改报告':
+                    searchUrl = `https://www.bing.com/search?q=(site:jcj.fuzhou.gov.cn+OR+site:nxgy.gov.cn+OR+site:sasac.gov.cn+OR+site:ccdi.gov.cn)+${'intitle:整改'}+${searchInput}`;
+                    break;
                 case '领导讲话':
                     searchUrl = `https://www.bing.com/search?q=(site:jcgov.gov.cn+OR+site:fmprc.gov.cn)+${'intitle:的讲话'}+${searchInput}`;
+                    break;
+                case '工作总结':
+                    searchUrl = `https://www.bing.com/search?q=(site:qingdao.gov.cn+OR+site:changde.gov.cn+OR+site:longyou.gov.cn+OR+site:yantian.gov.cn+OR+site:szgm.gov.cn)+${'intitle:总结'}+${searchInput}`;
                     break;
                 case '理论文章':
                     searchUrl = `https://www.bing.com/search?q=(site:qstheory.cn)+${searchInput}`;
