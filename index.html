@@ -1,181 +1,144 @@
-<!doctype html>
-<html lang="ch">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link rel="icon" href="img/xingyun.svg">
-    <style>.table-download {
-        margin: 0px auto;
-      }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <style>
+        #search-bar {
+            text-align: center;
+            position: absolute;
+            top: 50%; /* Centered vertically */
+            left: 50%; /* Centered horizontally */
+            transform: translate(-50%, -50%); /* Correct offset */
+        }
+        #search-input, #search-option, #search-button {
+            height: 40px;
+            font-size: 20px;
+            border-radius: 15px; /* Rounded corners */
+        }
+        #search-option {
+            width: 200px; /* Change this value to adjust the width of the select box */
+        }
+        #search-input {
+            width: 540px;
+        }
+        #search-button {
+            width: 100px;
+            background-color: #0053f8; /* New color */
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .header-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 470px; /* Fixed width */
+            height: 100px; /* Fixed height */
+            margin-bottom: 40px; /* Add margin-bottom to adjust image position */
+        }
+        .search-container {
+            position: relative;
+            width: 540px; /* Same as the search input */
+        }
 
-      .row-download {
-        cursor: pointer;
-      }
+        #search-input {
+            width: 100%; /* Take full width of the container */
+        }
+
+        #search-button {
+            position: absolute;
+            right: 0; /* Align to the right side of the container */
+            top: 0; /* Align to the top side of the container */
+            height: 100%; /* Same height as the search input */
+        }
+        .search-container {
+            position: relative;
+            display: flex;
+            width: 740px; /* Adjust the width based on your needs */
+        }
+
+        #search-option {
+            width: 200px; /* Same as before */
+        }
+
+        #search-input {
+            flex-grow: 1; /* Make the search input take the remaining space */
+        }
+
+        #search-button {
+            position: absolute;
+            right: 0; /* Align to the right side of the container */
+            top: 0; /* Align to the top side of the container */
+            height: 100%; /* Same height as the search input */
+        }
+        #footer-link {
+            text-align: center;
+            position: absolute;
+            top: 70%; /* Adjust this value to change the vertical position of the link */
+            left: 50%; /* Centered horizontally */
+            transform: translate(-50%, -50%); /* Correct offset */
+        }
+
     </style>
-    <title>行云 - 独家人工智能公文学习、写作平台</title>
-  </head>
-
-  <body>
-    <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#top">行云</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <div class="collapse navbar-collapse" id="navbarItems">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#top">首页</a></li>
-            <li class="nav-item"><a class="nav-link" href="#features">功能</a></li>
-            <li class="nav-item"><a class="nav-link" href="#downloads">下载</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://huiyuan.zhixingwrite.com/">会员</a></li>
-            <li class="nav-item"><a class="nav-link" href="http://xy.zhixingwrite.com/#/">老会员后台</a></li>
-            <li class="nav-item"><a class="nav-link" href="#privacy">隐私政策</a></li>
-          </ul>
+</head>
+<body>
+    <div id="search-bar">
+        <img src="http://xyapi.zhixingwrite.com/static/upload/647d360db6194772/328f8240032627c4.png" class="header-image">
+        
+        <div class="search-container">
+            <select id="search-option">
+                <option value="党建简报">党建简报</option>
+                <option value="心得体会">心得体会</option>
+                <option value="调研报告">调研报告</option>
+                <option value="领导讲话">领导讲话</option>
+                <option value="理论文章">理论文章</option>
+                <option value="通知方案">通知方案</option>
+                <option value="政府工作报告">政府工作报告</option>
+            </select>
+            <input type="text" id="search-input" placeholder="请输入搜索内容">
+            <button id="search-button" onclick="search()">搜索</button>
         </div>
-      </div>
-    </nav>
-
-    <div class="px-4 py-5 my-5 text-center">
-      <img class="d-block mx-auto mb-4" src="img/xingyun.svg" width="200" height="200">
-      <h1 class="display-5 fw-bold">行云</h1>
-      <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">使用先进人工智能进行公文写作学习，完成公文写作任务，让您的文章材料写得又好又快。</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <a href="#downloads" class="btn btn-primary btn-lg px-4 gap-3">现在下载</button>
-          <a href="https://www.bilibili.com/video/BV1V44y1G75z/?spm_id_from=333.337.search-card.all.click" target="_blank" class="btn btn-outline-secondary btn-lg px-4">使用视频</a>
-        </div>
-      </div>
     </div>
-
-    <div class="container px-4 pb-3" id="features">
-      <h2 class="pb-2 border-bottom">功能</h2>
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4 pt-4 pb-5">
-        <div class="col d-flex align-items-start">
-          <i class="material-icons-outlined bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em">devices</i>
-          <div>
-            <h4 class="fw-bold mb-0">多平台</h4>
-            <p>现在，您可以在iOS，Android，macOS，Windows操作行云。</p>
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <i class="material-icons-outlined bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em">bolt</i>
-          <div>
-            <h4 class="fw-bold mb-0">高速搜索</h4>
-            <p>强大的数据库算法，让您拥有海量文章素材，并且能够建立自己的公文数据库，通过先进搜索引擎闪电般随时查找需要的资料。</p>
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <i class="material-icons-outlined bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em">touch_app</i>
-          <div>
-            <h4 class="fw-bold mb-0">结合实际</h4>
-            <p>所有公文技巧针对现实工作实际开发，并将技巧通过软件实现，快速帮您提升写作水平。</p>
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <i class="material-icons-outlined bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em">lock</i>
-          <div>
-            <h4 class="fw-bold mb-0">安全</h4>
-            <p>对用户数据不采取任何分享、挖掘、分析，您可以将写作素材安心存放。（请勿存放保密信息）</p>
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <i class="material-icons-outlined bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em">wifi_tethering_off</i>
-          <div>
-            <h4 class="fw-bold mb-0">不受干扰</h4>
-            <p>专业只为公文写作打造，全部功能只为提升您的写作水平和写作速度而生，没有任何广告和额外功能。</p>
-          </div>
-        </div>
-        <div class="col d-flex align-items-start">
-          <i class="material-icons-outlined bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em">image</i>
-          <div>
-            <h4 class="fw-bold mb-0">持续更多想象</h4>
-            <p>我们持续研发更多新功能，定期为大家更新更多智能工具，让您写作如虎添翼。</p>
-          </div>
-        </div>
-      </div>
+    <div id="footer-link">
+        <a href=".\main.html">行云智能公文写作学习课程与APP软件</a>
     </div>
-
-    <div class="container px-4 pb-3" id="downloads">
-      <h2 class="pb-2 border-bottom">下载</h2>
-
-      <div class="container text-center pt-4 pb-5">
-        <table class="table table-bordered table-striped table-hover w-auto table-download">
-          <thead>
-            <tr>
-              <th scope="col">平台</th>
-              <th scope="col">版本</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="row-download" data-download-link="https://apps.apple.com/ch/app/行云-独家公文写作学习平台/id1498605899">
-              <td>iOS</td>
-              <td id="version-ios">点击下载</td>
-            </tr>
-            <tr class="row-download" data-download-link="https://xyapi.zhixingwrite.com/static/dl/">
-              <td>Android</td>
-              <td id="version-android">点击下载</td>
-            </tr>
-            <tr class="row-download" data-download-link="https://cowtransfer.com/s/275eff3c5dac40">
-              <td>macOS</td>
-              <td id="version-macos">点击下载</td>
-            </tr>
-            <tr class="row-download" data-download-link="https://cowtransfer.com/s/1c716fd959cb47">
-              <td>Windows</td>
-              <td id="version-win">点击下载</td>
-            </tr>
-            <tr class="row-download" data-download-link="http://zhixingwrite.com/wp-content/uploads/2020/09/知行写作排版助手.zip">
-              <td>公文一键排版插件</td>
-              <td id="version-win">Word版（WPS暂不支持）</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="container px-4 pb-3" id="privacy">
-      <h2 class="pb-2 border-bottom">隐私政策</h2>
-
-      <div class="container pt-4 pb-5">
-        <p class="text-muted">感谢您使用行云！</p>
-        <p class="text-muted">行云软件不会收集、分析、分享您的任何数据。所有数据或直接存储在您的电脑中，或存储在您的个人账户下。</p>
-        <p class="text-muted">当您将材料上传至个人账号下，他人无法搜索、阅读、使用您的数据。行云软件也不会分析和处理您的数据。但由于许多功能需要借助较多的算力，行云软件必须联网使用，所以在使用行云软件时请遵守法律规定，切勿将保密信息上传至软件。我们推荐您将学习等非保密数据进行上传保存。</p>
-        <p class="text-muted">如果您打算放弃使用行云软件，可以通过行云APP，进入到「我的」，选择「永久删除账户」，就可以将您账户下的课程、数据等资料彻底删除清空。</p>
-      </div>
-    </div>
-
-    <div class="container px-4 pb-3" id="link-exchange">
-      <h2 class="pb-2 border-bottom">联系购买课程或服务</h2>
-
-      <div class="container pt-4 pb-5">
-        <p>如果您打算参加我们的课程训练，欢迎通过以下方式进行联系：</p>
-          <p class="text-muted">微信客服：zhixingwrite（推荐）</p>
-          <p class="text-muted">QQ1群：1106526103（已满）</p>
-          <p class="text-muted">QQ2群：317425550（密码：望得远，才能站得高）</p>
-      </div>
-    </div>
-
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container">
-        <span class="text-muted">Copyright © 2022, 杭州知行通识信息科技有限公司<br>All rights reserved.</span>
-      </div>
-    </footer>
-
-    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-
+    
     <script>
-        $('.navbar-collapse a').click(function() {
-          $('.navbar-collapse').collapse('hide');
-        });
-
-        $('.row-download').click(function() {
-          window.document.location = $(this).data('download-link');
-        });
-
+        function search() {
+            let searchOption = document.getElementById('search-option').value;
+            let searchInput = document.getElementById('search-input').value;
+            let searchUrl = '';
+            
+            switch(searchOption) {
+                case '党建简报':
+                    searchUrl = `https://www.bing.com/search?q=(site:dangjian.heshun.gov.cn/zugongxinxi+OR+site:jhzzb.gov.cn+OR+site:jaxf.gov.cn)+${searchInput}`;
+                    break;
+                case '心得体会':
+                    searchUrl = `https://www.bing.com/search?q=(site:tougao.12371.cn)+${searchInput}`;
+                    break;
+                case '调研报告':
+                    searchUrl = `https://www.bing.com/search?q=(site:wzdj.gov.cn+OR+site:jsrd.gov.cn+OR+site:ankang.gov.cn+OR+site:czt.hunan.gov.cn/)+${searchOption}+${searchInput}`;
+                    break;
+                case '领导讲话':
+                    searchUrl = `https://www.bing.com/search?q=(site:jcgov.gov.cn+OR+site:fmprc.gov.cn)+${'intitle:的讲话'}+${searchInput}`;
+                    break;
+                case '理论文章':
+                    searchUrl = `https://www.bing.com/search?q=(site:qstheory.cn)+${searchInput}`;
+                    break;
+                case '政府工作报告':
+                    searchUrl = `https://www.bing.com/search?q=(site:district.ce.cn)+${searchOption}+${searchInput}`;
+                    break;
+                case '通知方案':
+                    searchUrl = `https://www.bing.com/search?q=(site:hrss.henan.gov.cn+OR+site:hangzhou.gov.cn+OR+site:gz.gov.cn+OR+site:wuhan.gov.cn/+OR+site:beijing.gov.cn/+OR+site:cq.gov.cn/)+${searchOption}+${searchInput}`;
+                    break;
+            }
+            
+            window.open(searchUrl, '_blank');
+        }
     </script>
-  </body>
+</body>
 </html>
