@@ -132,7 +132,7 @@
                     searchUrl = `https://www.bing.com/search?q=(site:jcgov.gov.cn+OR+site:fmprc.gov.cn)+${'intitle:的讲话'}+${searchInput}`;
                     break;
                 case '工作总结':
-                    searchUrl = `https://www.bing.com/search?q=(site:qingdao.gov.cn+OR+site:changde.gov.cn+OR+site:longyou.gov.cn+OR+site:yantian.gov.cn+OR+site:szgm.gov.cn)+${'intitle:总结'}+${searchInput}`;
+                    searchUrl = `https://www.bing.com/search?q=(site:qingdao.gov.cn+OR+site:changde.gov.cn+OR+site:longyou.gov.cn+OR+site:yantian.gov.cn+OR+site:szgm.gov.cn)+${encodeURIComponent('intitle:总结+')}${searchInput}`;
                     break;
                 case '理论文章':
                     searchUrl = `https://www.bing.com/search?q=(site:qstheory.cn)+${searchInput}`;
