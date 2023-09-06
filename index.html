@@ -173,15 +173,14 @@
             window.open(searchUrl, '_blank');
         }
     </script>
-    <script src="https://cloud.openchat.so/search.js"></script>
+    <script src="https://cloud.openchat.so/chat.js"></script>
     <script>
-        window.onload = () => {
-            initilizeChatBot({
-                initialFirstMessage: "Hello, Search OpenChat resources here.",
-                token: "Wl4gBOM6J2HXC9GDld2U",
-                //initiatorId: "search-openchat" // provide a unique id for the search widget if you want to have custom button
-            });
+    document.addEventListener('DOMContentLoaded', function() {
+        var chatConfig = {
+        token: "Wl4gBOM6J2HXC9GDld2U",
         };
+        initializeChatWidget(chatConfig);
+    });
     </script>
 </body>
 </html>
